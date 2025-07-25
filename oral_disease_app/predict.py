@@ -8,7 +8,9 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 class_names = ['Calculus', 'Caries', 'Gingivitis', 'hypodontia', 'Ulcer', 'Tooth Discoloration']
 
-
+# Go one level up to get to repo root (APS360_Project)
+root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+model_path = os.path.join(root_dir, "model_VIT_bs32_lr0.0001_epoch24")
 
 # Preprocessing
 transform = transforms.Compose([
@@ -18,7 +20,7 @@ transform = transforms.Compose([
                          std=[0.229, 0.224, 0.225])
 ])
 
-def predict(image: Image.Image, model_path: str = "model/model_VIT_bs32_lr0.0001_epoch24"):
+def predict(image: Image.Image, model_path: str = model_path) -> str:
     # Load models
     vit = ViTFeatureExtractor().to(device)
     classifier = ClassifierVIT().to(device)

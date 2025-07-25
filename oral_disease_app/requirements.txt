@@ -1,4 +1,5 @@
 streamlit
+os
 torch
 torchvision
 timm

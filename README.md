@@ -35,31 +35,32 @@ The pipeline uses:
    git clone https://github.com/ymoola/APS360_Project.git
    cd APS360_Project/oral_disease_app
    
-2. **Install Dependencies
+2. **Install Dependencies**
 
    ```bash
    pip install -r requirements.txt
    
-3. **Run App
+3. **Run App**
 
    ```bash
    streamlit run app.py
 
   💡 Make sure the model file model_VIT_bs32_lr0.0001_epoch24 is present in the root of the repo or update the path in predict.py.
 
---
+---
 
 ## ☁️ Online (Streamlit Cloud)
 App is deployed here:
 https://oral-disease.streamlit.app
 
--- 
+---
+
 ## 🧠 Model Architecture
 
 ViT Base (Patch16, 224) from timm is used for feature extraction.
 A lightweight fully connected layer (ANN) classifies extracted embeddings into 6 oral disease categories.
 
---
+---
 
 ## 📂 Project Structure
 

@@ -8,6 +8,13 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 class_names = ['Calculus', 'Caries', 'Gingivitis', 'hypodontia', 'Ulcer', 'Tooth Discoloration']
 
+MODEL_PATH = "model/model_VIT_bs32_lr0.0001_epoch24"  
+
+import os
+assert os.path.exists(MODEL_PATH), f"Model path does not exist: {MODEL_PATH}"
+
+print("Model dir contents:", os.listdir("model"))
+
 # Preprocessing
 transform = transforms.Compose([
     transforms.Resize((224, 224)),
@@ -20,7 +27,7 @@ def predict(image: Image.Image, model_path: str = "model/model_VIT_bs32_lr0.0001
     # Load models
     vit = ViTFeatureExtractor().to(device)
     classifier = ClassifierVIT().to(device)
-    classifier.load_state_dict(torch.load(model_path, map_location=device))
+    classifier.load_state_dict(torch.load(MODEL_PATH, map_location=device))
     classifier.eval()
     vit.eval()
 

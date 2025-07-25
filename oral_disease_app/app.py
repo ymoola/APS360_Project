@@ -1,6 +1,10 @@
 import streamlit as st
 from PIL import Image
 from predict import predict
+import os
+
+st.text(f"Working directory: {os.getcwd()}")
+st.text(f"Files here: {os.listdir()}")
 
 st.set_page_config(page_title="Oral Disease Classifier", layout="centered")
 st.title("🦷 Oral Disease Image Classifier")

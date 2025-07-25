@@ -3,7 +3,7 @@ from torchvision import transforms
 from PIL import Image
 from model.vit_feature_extractor import ViTFeatureExtractor
 from model.ann_classifier import ClassifierVIT
-
+import os
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 class_names = ['Calculus', 'Caries', 'Gingivitis', 'hypodontia', 'Ulcer', 'Tooth Discoloration']
@@ -12,7 +12,6 @@ print("Model dir contents:", os.listdir("model"))
 
 MODEL_PATH = "model/model_VIT_bs32_lr0.0001_epoch24"  
 
-import os
 assert os.path.exists(MODEL_PATH), f"Model path does not exist: {MODEL_PATH}"
 
 

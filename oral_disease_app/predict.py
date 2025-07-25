@@ -23,7 +23,7 @@ transform = transforms.Compose([
                          std=[0.229, 0.224, 0.225])
 ])
 
-def predict(image: Image.Image, model_path: str = "model/model_VIT_bs32_lr0.0001_epoch24"):
+def predict(image: Image.Image, model_path: str = "oral_disease_app/model/model_VIT_bs32_lr0.0001_epoch24"):
     # Load models
     vit = ViTFeatureExtractor().to(device)
     classifier = ClassifierVIT().to(device)
